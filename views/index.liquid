@@ -1,10 +1,38 @@
 {% render 'partials/head.liquid', title: 'Squad page' %}
 
-<h2>Students</h2>
-<ul>
-  {% for person in persons %}
-    <li><a href="/student/{{ person.id }}">{{ person.name }}</a></li>
-  {% endfor %}
+<button><p>Kies een team</p></button>
+
+<ul class="sorteren">
+  <li class="btn-sort"><p class="teams">Bliss</p></li>
+  <li class="btn-sort"><p class="teams">Delight</p></li>
+  <li class="btn-sort"><p class="teams">Happy</p></li>
+  <li class="btn-sort"><p class="teams">Jolly</p></li>
+  <li class="btn-sort"><p class="teams">Joy</p></li>
+  <li class="btn-sort"><p class="teams">Cheer</p></li>
+  <li class="btn-sort"><p class="teams">Dazzle</p></li>
+  <li class="btn-sort"><p class="teams">Glow</p></li>
+  <li class="btn-sort"><p class="teams">Radiant</p></li>
+  <li class="btn-sort"><p class="teams">Spark</p></li>
+  <li class="btn-sort"><p class="teams">Sunny</p></li>
 </ul>
 
+<h2>Students</h2>
+  
+<ul class="card">
+    {%
+     for person in persons %}
+     {% comment %} Link kiezen: profilecard > website > github repo {% endcomment %}
+    {% if person.profilecard %}
+      <a class="dossier card-link" href="{{ person.profilecard }}" target="_blank" rel="noopener">
+    {% elsif person.website %}
+      <a class="dossier card-link" href="{{ person.website }}" target="_blank" rel="noopener">
+    {% else %}
+      <a class="dossier card-link" href="https://github.com/{{ person.github_handle }}/connect-your-tribe-squad-page" target="_blank" rel="noopener">
+    {% endif %}
+    <li data-nickname="{{  person.nickname }}" style="--background-color: {{ person.fav_color }}" class="student-card">
+    <img src="https://fdnd.directus.app/assets/{{ person.mugshot }}?width=300" alt="Profile picture">
+    <a class="name-nickname" href="/student/{{ person.id }}">{{ person.name }}</a>
+  </li>
+  {% endfor %}
+</ul>
 {% render 'partials/foot.liquid', squads: squads %}
