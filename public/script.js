@@ -7,4 +7,4 @@ filterBtn.addEventListener('click', function(){
 // filtert de button
 
 // link naar profilecard
-let card = document.querySelector('#data-profile-card')
+let card = document.querySelector('data-profile-card')
