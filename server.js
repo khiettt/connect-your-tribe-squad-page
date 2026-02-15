@@ -82,6 +82,7 @@ app.get('/', async function (request, response) {
   response.render('index.liquid', {persons: personResponseJSON.data, squads: squadResponseJSON.data})
 })
 
+// team pagina's
 app.get('/team/:team_naam', async function (request, response) {
   const params = {
     'sort': 'name',
@@ -94,7 +95,6 @@ app.get('/team/:team_naam', async function (request, response) {
   const personResponseJSON = await personResponse.json()
   response.render('index.liquid', {persons: personResponseJSON.data, squads: squadResponseJSON.data})
 })
-
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 app.post('/', async function (request, response) {
   // Je zou hier data kunnen opslaan, of veranderen, of wat je maar wilt

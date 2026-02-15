@@ -3,17 +3,17 @@
 <button><p>Kies een team</p></button>
 
 <ul class="sorteren">
-  <li class="btn-sort"><p class="teams">Bliss</p></li>
-  <li class="btn-sort"><p class="teams">Delight</p></li>
-  <li class="btn-sort"><p class="teams">Happy</p></li>
-  <li class="btn-sort"><p class="teams">Jolly</p></li>
-  <li class="btn-sort"><p class="teams">Joy</p></li>
-  <li class="btn-sort"><p class="teams">Cheer</p></li>
-  <li class="btn-sort"><p class="teams">Dazzle</p></li>
-  <li class="btn-sort"><p class="teams">Glow</p></li>
-  <li class="btn-sort"><p class="teams">Radiant</p></li>
-  <li class="btn-sort"><p class="teams">Spark</p></li>
-  <li class="btn-sort"><p class="teams">Sunny</p></li>
+  <li class="btn-sort"><a href="/team/bliss" class="teams">Bliss</a></li>
+  <li class="btn-sort"><a href="/team/delight" class="teams">Delight</a></li>
+  <li class="btn-sort"><a href="/team/happy" class="teams">Happy</a></li>
+  <li class="btn-sort"><a href="/team/jolly" class="teams">Jolly</a></li>
+  <li class="btn-sort"><a href="/team/joy" class="teams">Joy</a></li>
+  <li class="btn-sort"><a href="/team/cheer" class="teams">Cheer</a></li>
+  <li class="btn-sort"><a href="team/dazzle" class="teams">Dazzle</a></li>
+  <li class="btn-sort"><a href="team/glow" class="teams">Glow</a></li>
+  <li class="btn-sort"><a href="team/radiant" class="teams">Radiant</a></li>
+  <li class="btn-sort"><a href="team/spark" class="teams">Spark</a></li>
+  <li class="btn-sort"><a href="team/sunny" class="teams">Sunny</a></li>
 </ul>
 
 <h2>Students</h2>
@@ -29,7 +29,7 @@
     {% else %}
       <a class="dossier card-link" href="https://github.com/{{ person.github_handle }}/connect-your-tribe-squad-page" target="_blank" rel="noopener">
     {% endif %}
-    <li data-nickname="{{  person.nickname }}" style="--background-color: {{ person.fav_color }}" class="student-card">
+    <li data-nickname="{{  person.nickname }}" class="student-card" style="--background-color: {{ person.fav_color }}">
     <img src="https://fdnd.directus.app/assets/{{ person.mugshot }}?width=300" alt="Profile picture">
     <a class="name-nickname" href="/student/{{ person.id }}">{{ person.name }}</a>
   </li>
