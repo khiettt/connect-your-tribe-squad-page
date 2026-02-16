@@ -102,6 +102,21 @@ app.post('/', async function (request, response) {
   response.redirect(303, '/')
 })
 
+const messages = []
+
+app.get('/berichten', function (request, response) {
+  response.render('messages.liquid', {
+    messages: messages
+  });
+});
+
+app.post('/berichten', function (request, response){
+  const newMessage = request.body.message;
+
+  messages.push(newMessage);
+
+  response.redirect('/berichten');
+})
 
 // Maak een GET route voor een detailpagina met een route parameter, id
 // Zie de documentatie van Express voor meer info: https://expressjs.com/en/guide/routing.html#route-parameters

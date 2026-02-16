@@ -1,0 +1,12 @@
+<h1>Berichten</h1>
+
+<form method="POST" action="/berichten">
+    <input type="text" name="message" placeholder="Type je bericht">
+    <button type="submit">Verstuur</button>
+</form>
+
+<ul>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+</ul>
