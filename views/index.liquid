@@ -1,38 +1,58 @@
 {% render 'partials/head.liquid', title: 'Squad page' %}
+<main>
+  <h1>Squad page</h1>
 
-<button><p>Kies een team</p></button>
+  <form class="filter-team">
+    <label>
+    <select name="team" id="team">
+      <option value="">Kies een team</option>
+      <option value="bliss">bliss</option>
+      <option value="delight">delight</option>
+      <option value="fun">fun</option>
+      <option value="happy">happy</option>
+      <option value="jolly">jolly</option>
+      <option value="joy">joy</option>
+      <option value="cheer">cheer</option>
+      <option value="dazzle">dazzle</option>
+      <option value="glow">glow</option>
+      <option value="radiant">radiant</option>
+      <option value="spark">spark</option>
+      <option value="sunny">sunny</option>
+    </select>
+  </label>
+  </form>
 
-<ul class="sorteren">
-  <li class="btn-sort"><a href="/team/bliss" class="teams">Bliss</a></li>
-  <li class="btn-sort"><a href="/team/delight" class="teams">Delight</a></li>
-  <li class="btn-sort"><a href="/team/happy" class="teams">Happy</a></li>
-  <li class="btn-sort"><a href="/team/jolly" class="teams">Jolly</a></li>
-  <li class="btn-sort"><a href="/team/joy" class="teams">Joy</a></li>
-  <li class="btn-sort"><a href="/team/cheer" class="teams">Cheer</a></li>
-  <li class="btn-sort"><a href="team/dazzle" class="teams">Dazzle</a></li>
-  <li class="btn-sort"><a href="team/glow" class="teams">Glow</a></li>
-  <li class="btn-sort"><a href="team/radiant" class="teams">Radiant</a></li>
-  <li class="btn-sort"><a href="team/spark" class="teams">Spark</a></li>
-  <li class="btn-sort"><a href="team/sunny" class="teams">Sunny</a></li>
-</ul>
-
-<h2>Students</h2>
+  <form class="filter-squad">
+    <label>
+      <select name="squad" id="squad">
+        <option value="">Filter squad</option>
+        <option value="squad-1I">Squad 1I</option>
+        <option value="squad-1J">Squad 1J</option>
+      </select>
+    </label>
+  </form>
+  <h2>Students</h2>
   
-<ul class="card">
-    {%
-     for person in persons %}
-     {% comment %} Link kiezen: profilecard > website > github repo {% endcomment %}
+  <ul class="card">
+      {% for person in persons %}
+  <li class="student-card" 
+      style="--background-color: {{ person.fav_color }}">
+      <img src="https://fdnd.directus.app/assets/{{ person.mugshot }}?width=300" alt="Profile picture">
+
     {% if person.profilecard %}
-      <a class="dossier card-link" href="{{ person.profilecard }}" target="_blank" rel="noopener">
+      {% assign link = person.profilecard %}
     {% elsif person.website %}
-      <a class="dossier card-link" href="{{ person.website }}" target="_blank" rel="noopener">
+      {% assign link = person.website %}
     {% else %}
-      <a class="dossier card-link" href="https://github.com/{{ person.github_handle }}/connect-your-tribe-squad-page" target="_blank" rel="noopener">
+      {% assign link = "https://github.com/" | append: person.github_handle | append: "/connect-your-tribe-squad-page" %}
     {% endif %}
-    <li data-nickname="{{  person.nickname }}" class="student-card" style="--background-color: {{ person.fav_color }}">
-    <img src="https://fdnd.directus.app/assets/{{ person.mugshot }}?width=300" alt="Profile picture">
-    <a class="name-nickname" href="/student/{{ person.id }}">{{ person.name }}</a>
+
+    <a class="dossier card-link" href="{{ link }}" target="_blank" rel="noopener">
+      <span class="name-nickname">{{ person.name }}</span>
+    </a>
+
   </li>
-  {% endfor %}
-</ul>
+{% endfor %}
+  </ul>
+</main>
 {% render 'partials/foot.liquid', squads: squads %}
