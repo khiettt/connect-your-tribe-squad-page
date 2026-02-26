@@ -1,9 +1,17 @@
-// opent en sluit de button
-let filterBtn = document.querySelector('button')
+// neem de class van form en sla het op als const
+const form = document.querySelector('.filters')
 
-filterBtn.addEventListener('click', function(){
-    document.querySelector('.sorteren').classList.toggle('visible')
-})
+// check of const bestaat
+if (form) {
+
+    const inputs = form.querySelectorAll('input, select')
+    // console.log(inputs)
+    inputs.forEach(input => {
+        input.addEventListener('input', () => {
+            form.submit()
+        })
+    })
+}
 // filtert de button
 
 // link naar profilecard
