@@ -59,13 +59,25 @@ h2{
 }
 
 /* card studenten */
-.card{
+.card,
+.card-link{
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows:  1fr;
+    gap: 1em;
     list-style: none;
+
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: 630px){
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows:  repeat(2, 1fr);
+    }
+    @media (min-width: 1000px){
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 .student-card{
     width: 300px;
@@ -98,11 +110,13 @@ h2{
 }
 
 .name-nickname{
+    font-family: 'Times New Roman', Times, serif;
     font-weight: 500;
+    font-size: 16px;
     margin-left: 30%;
     text-decoration: none;
     font-size: 20px;
-    color: black;
+    color: black; 
 }
 /* .card-link::before{
     content: attr(data-nickname);
