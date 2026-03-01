@@ -102,6 +102,7 @@ app.post('/', async function (request, response) {
   response.redirect(303, '/')
 })
 
+// POST en GET 
 const messages = []
 
 app.get('/berichten', function (request, response) {
@@ -117,6 +118,30 @@ app.post('/berichten', function (request, response){
 
   response.redirect('/berichten');
 })
+// app.get('/berichten', async function (request, response) {
+
+//   // Filter eerst de berichten die je wilt zien, net als bij personen
+//   // Deze database wordt gedeeld door iedereen, dus verzin zelf een handig filter,
+//   // bijvoorbeeld je teamnaam, je projectnaam, je person ID, de datum van vandaag, etc..
+//   const params = {
+//     'filter[for]': 'demo-16-februari',
+//   }
+  
+//   // Maak hiermee de URL aan, zoals we dat ook in de browser deden
+//   const apiURL = 'https://fdnd.directus.app/items/messages?' + new URLSearchParams(params)
+  
+//   // En haal de data op, via een GET request naar Directus
+//   const messagesResponse = await fetch(apiURL)
+  
+//   // Zet de JSON daarvan om naar een object
+//   const messagesResponseJSON = await messagesResponse.json()
+  
+//   // Die we vervolgens doorgeven aan onze view
+//   response.render('messages.liquid', {
+//     messages: messagesResponseJSON.data
+//   })
+
+// })
 
 // Maak een GET route voor een detailpagina met een route parameter, id
 // Zie de documentatie van Express voor meer info: https://expressjs.com/en/guide/routing.html#route-parameters
