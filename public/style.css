@@ -24,6 +24,7 @@ h1{
     padding: 0 70px;
 }
 
+/* form team en squad */
 #squad{
     font-family: 'Times New Roman', Times, serif;
     background-color: antiquewhite;
@@ -71,10 +72,12 @@ h2{
     align-items: center;
     justify-content: center;
 
+    /* tablet */
     @media (min-width: 630px){
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows:  repeat(2, 1fr);
     }
+    /* desktop */
     @media (min-width: 1000px){
         grid-template-columns: repeat(3, 1fr);
     }
