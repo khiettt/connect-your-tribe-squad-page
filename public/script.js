@@ -1,3 +1,5 @@
+// Zodra iemand wat veranderd in de inpultvelden wordt dit direct verzonden
+
 // neem de class van form en sla het op als const
 const form = document.querySelector('.filters')
 
@@ -12,7 +14,3 @@ if (form) {
         })
     })
 }
-// filtert de button
-
-// link naar profilecard
-let card = document.querySelector('#data-profile-card')
